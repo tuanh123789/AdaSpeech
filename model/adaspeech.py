@@ -16,7 +16,7 @@ class AdaSpeech(nn.Module):
     """ AdaSpeech """
 
     def __init__(self, preprocess_config, model_config):
-        super(FastSpeech2, self).__init__()
+        super(AdaSpeech, self).__init__()
         self.model_config = model_config
 
         self.encoder = Encoder(model_config)
@@ -29,23 +29,20 @@ class AdaSpeech(nn.Module):
             model_config["transformer"]["decoder_hidden"],
             preprocess_config["preprocessing"]["mel"]["n_mel_channels"],
         )
+        self.speaker_emb = nn.Embedding(
+            model_config["language_speaker"]["num_speaker"],
+            model_config["transformer"]["encoder_hidden"]
+        )
+        self.phone_level_embed = nn.Linear(
+            model_config["PhoneEmbedding"]["phn_latent_dim"],
+            model_config["PhoneEmbedding"]["adim"]
+        )
+        self.lang_emb = nn.Embedding(
+            model_config["language_speaker"]["num_language"],
+            model_config["transformer"]["encoder_hidden"]
+        )
+        self.layer_norm = Condional_LayerNorm(preprocess_config["preprocessing"]["mel"]["n_mel_channels"])
         self.postnet = PostNet()
-
-        self.speaker_emb = None
-        if model_config["multi_speaker"]:
-            with open(
-                os.path.join(
-                    preprocess_config["path"]["preprocessed_path"], "speakers.json"
-                ),
-                "r",
-            ) as f:
-                n_speaker = len(json.load(f))
-            self.speaker_emb = nn.Embedding(
-                n_speaker,
-                model_config["transformer"]["encoder_hidden"],
-            )
-        self.phone_level_embed = nn.Linear(4, model_config["PhoneEmbedding"]["adim"])
-        self.layer_norm = Condional_LayerNorm(80)
 
     def forward(
         self,
@@ -60,6 +57,7 @@ class AdaSpeech(nn.Module):
         e_targets=None,
         d_targets=None,
         avg_targets=None,
+        languages=None,
         phoneme_level_predictor=None,
         p_control=1.0,
         e_control=1.0,
@@ -73,6 +71,7 @@ class AdaSpeech(nn.Module):
             else None
         )
         speaker_embedding = self.speaker_emb(speakers)
+        language_embedding = self.lang_emb(languages)
         output = self.encoder(texts, speaker_embedding, src_masks)
         xs = self.UtteranceEncoder(torch.transpose(mels, 1, 2))
         xs = torch.transpose(xs, 1, 2)
@@ -88,10 +87,13 @@ class AdaSpeech(nn.Module):
             phn_encode = self.PhonemeLevelEncoder(avg_targets.transpose(1, 2))
             output = output + self.phone_level_embed(phn_encode)
 
-        if self.speaker_emb is not None:
-            output = output + speaker_embedding.unsqueeze(1).expand(
-                -1, max_src_len, -1
-            )
+        output = output + speaker_embedding.unsqueeze(1).expand(
+            -1, max_src_len, -1
+        )
+
+        output = output + language_embedding.unsqueeze(1).expand(
+            -1, max_src_len, -1
+        )
 
         (
             output,
@@ -142,6 +144,7 @@ class AdaSpeech(nn.Module):
         src_lens,
         max_src_len,
         mels=None,
+        languages=None,
         mel_lens=None,
         max_mel_len=None,
         p_targets=None,
@@ -160,6 +163,7 @@ class AdaSpeech(nn.Module):
         )
 
         speaker_embedding = self.speaker_emb(speakers)
+        language_embedding = self.lang_emb(languages)
         output = self.encoder(texts, speaker_embedding, src_masks)
         xs = self.UtteranceEncoder(torch.transpose(mels, 1, 2))
         xs = torch.transpose(xs, 1, 2)
@@ -168,10 +172,14 @@ class AdaSpeech(nn.Module):
         phn_predict = self.PhonemeLevelPredictor(output.transpose(1, 2))
         phn_encode = None
         output = output + self.phone_level_embed(phn_predict)
-        if self.speaker_emb is not None:
-            output = output + speaker_embedding.unsqueeze(1).expand(
-                -1, max_src_len, -1
-            )
+
+        output = output + speaker_embedding.unsqueeze(1).expand(
+            -1, max_src_len, -1
+        )
+
+        output = output + language_embedding.unsqueeze(1).expand(
+            -1, max_src_len, -1
+        )
 
         (
             output,

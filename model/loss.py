@@ -3,7 +3,7 @@ import torch.nn as nn
 
 
 class AdaSpeechLoss(nn.Module):
-    """ FastSpeech2 Loss """
+    """ AdaSpeechLoss """
 
     def __init__(self, preprocess_config, model_config):
         super(AdaSpeechLoss, self).__init__()
@@ -24,7 +24,8 @@ class AdaSpeechLoss(nn.Module):
             pitch_targets,
             energy_targets,
             duration_targets,
-            avg_mel_phs
+            _,
+            _,
         ) = inputs[6:]
         (
             mel_predictions,
@@ -80,11 +81,11 @@ class AdaSpeechLoss(nn.Module):
         pitch_loss = self.mse_loss(pitch_predictions, pitch_targets)
         energy_loss = self.mse_loss(energy_predictions, energy_targets)
         duration_loss = self.mse_loss(log_duration_predictions, log_duration_targets)
+        
         if phoneme_level_loss:
             avg_mel_ph_predictions = avg_mel_ph_predictions.masked_select(src_masks.unsqueeze(-1))
             avg_mel_phs_encode = avg_mel_phs_encode.masked_select(src_masks.unsqueeze(-1))
             avg_ph_mel_loss = self.mse_loss(avg_mel_phs_encode, avg_mel_ph_predictions)
-
 
             total_loss = (
                 mel_loss + postnet_mel_loss + duration_loss + pitch_loss + energy_loss + avg_ph_mel_loss

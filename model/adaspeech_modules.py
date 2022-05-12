@@ -13,7 +13,6 @@ class LayerNorm(torch.nn.Module):
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         x = self.layer_norm(x.transpose(1, -1))
         x = x.transpose(1, -1)
-        
         return x
 
 class UtteranceEncoder(nn.Module):
@@ -67,7 +66,6 @@ class UtteranceEncoder(nn.Module):
 
 class PhonemeLevelEncoder(nn.Module):
     """ Phoneme level encoder """
-
     def __init__(self, model_config):
         super(PhonemeLevelEncoder, self).__init__()
         self.idim = model_config["PhonemeLevelEncoder"]["idim"]
@@ -106,17 +104,15 @@ class PhonemeLevelEncoder(nn.Module):
                 ]
             )
         )
-        self.linear = nn.Linear(self.n_chans, 4)
+        self.linear = nn.Linear(self.n_chans, model_config["PhoneEmbedding"]["phn_latent_dim"])
 
     def forward(self, xs):
         xs = self.conv(xs)
         xs = self.linear(xs.transpose(1,2))
-
         return xs
 
 class PhonemeLevelPredictor(nn.Module):
-    """ Phoneme Level Predictor """
-
+    """ PhonemeLevelPredictor """
     def __init__(self, model_config):
         super(PhonemeLevelPredictor, self).__init__()
         self.idim = model_config["PhonemeLevelPredictor"]["idim"]
@@ -155,26 +151,27 @@ class PhonemeLevelPredictor(nn.Module):
                 ]
             )
         )
-        self.linear = nn.Linear(self.n_chans, 4)
+        self.linear = nn.Linear(self.n_chans, model_config["PhoneEmbedding"]["phn_latent_dim"])
 
     def forward(self, xs):
         xs = self.conv(xs)
         xs = self.linear(xs.transpose(1,2))
-
+        
         return xs
 
 class Condional_LayerNorm(nn.Module):
-    """Conditional Layer Normalization """
 
-    def __init__(self, normal_shape, model_config, epsilon=1e-5):
+    def __init__(self,
+                normal_shape,
+                epsilon=1e-5
+                ):
         super(Condional_LayerNorm, self).__init__()
         if isinstance(normal_shape, int):
             self.normal_shape = normal_shape
-        self.speaker_embedding_dim = model_config["transformer"]["encoder_hidden"]
-        self.epsilon = model_config["ConditionalLayerNorm"]["epsilon"]
+        self.speaker_embedding_dim = 256
+        self.epsilon = epsilon
         self.W_scale = nn.Linear(self.speaker_embedding_dim, self.normal_shape)
         self.W_bias = nn.Linear(self.speaker_embedding_dim, self.normal_shape)
-        
         self.reset_parameters()
 
     def reset_parameters(self):
@@ -182,7 +179,7 @@ class Condional_LayerNorm(nn.Module):
         torch.nn.init.constant_(self.W_scale.bias, 1.0)
         torch.nn.init.constant_(self.W_bias.weight, 0.0)
         torch.nn.init.constant_(self.W_bias.bias, 0.0)
-
+    
     def forward(self, x, speaker_embedding):
         mean = x.mean(dim=-1, keepdim=True)
         var = ((x - mean) ** 2).mean(dim=-1, keepdim=True)
