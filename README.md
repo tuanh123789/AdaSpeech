@@ -62,7 +62,7 @@ python preprocess.py config/finetune/preprocess.yaml
 Finetune speaker voice with
 
 ```
-python train.py [-h] [--pretrain_dir BASE_LINE_MODEL_PATH] [-p PREPROCESS_CONFIG_PATH] [-m MODEL_CONFIG_PATH] [-t TRAIN_CONFIG_PATH] [--vocoder_checkpoint VOCODER_CHECKPOINT_PATH] [--vocoder_config VOCODER_CONFIG_PATH]
+python finetune.py [-h] [--pretrain_dir BASE_LINE_MODEL_PATH] [-p PREPROCESS_CONFIG_PATH] [-m MODEL_CONFIG_PATH] [-t TRAIN_CONFIG_PATH] [--vocoder_checkpoint VOCODER_CHECKPOINT_PATH] [--vocoder_config VOCODER_CONFIG_PATH]
 ```
 
 # TensorBoard
@@ -72,6 +72,11 @@ Use
 ```
 tensorboard [--logdir LOG_PATH]
 ```
+* Tensorboard for pretrain model
+![](./assets/pretrain_tensorboard.png)
+
+* Tensorboard for finetune with only 5 sentences
+![](./assets/finetune_tensorboard.png)
 
 # References
 - [**AdaSpeech: Adaptive text to speech for custom voice**](https://arxiv.org/pdf/2103.00993.pdf).

@@ -1,0 +1,656 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0 
+xmax = 8.849977324263039 
+tiers? <exists> 
+size = 2 
+item []: 
+    item [1]:
+        class = "IntervalTier" 
+        name = "words" 
+        xmin = 0 
+        xmax = 8.849977324263039 
+        intervals: size = 36 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.13 
+            text = "nó" 
+        intervals [2]:
+            xmin = 0.13 
+            xmax = 0.26 
+            text = "là" 
+        intervals [3]:
+            xmin = 0.26 
+            xmax = 0.62 
+            text = "loại" 
+        intervals [4]:
+            xmin = 0.62 
+            xmax = 0.85 
+            text = "gạch" 
+        intervals [5]:
+            xmin = 0.85 
+            xmax = 1.1 
+            text = "nung" 
+        intervals [6]:
+            xmin = 1.1 
+            xmax = 1.26 
+            text = "rất" 
+        intervals [7]:
+            xmin = 1.26 
+            xmax = 1.72 
+            text = "già" 
+        intervals [8]:
+            xmin = 1.72 
+            xmax = 1.76 
+            text = "" 
+        intervals [9]:
+            xmin = 1.76 
+            xmax = 1.97 
+            text = "gần" 
+        intervals [10]:
+            xmin = 1.97 
+            xmax = 2.16 
+            text = "đạt" 
+        intervals [11]:
+            xmin = 2.16 
+            xmax = 2.4 
+            text = "tới" 
+        intervals [12]:
+            xmin = 2.4 
+            xmax = 2.6 
+            text = "tiêu" 
+        intervals [13]:
+            xmin = 2.6 
+            xmax = 2.91 
+            text = "chuẩn" 
+        intervals [14]:
+            xmin = 2.91 
+            xmax = 3.07 
+            text = "của" 
+        intervals [15]:
+            xmin = 3.07 
+            xmax = 3.34 
+            text = "sành" 
+        intervals [16]:
+            xmin = 3.34 
+            xmax = 3.64 
+            text = "sứ" 
+        intervals [17]:
+            xmin = 3.64 
+            xmax = 4.02 
+            text = "cổ" 
+        intervals [18]:
+            xmin = 4.02 
+            xmax = 4.34 
+            text = "" 
+        intervals [19]:
+            xmin = 4.34 
+            xmax = 4.56 
+            text = "sức" 
+        intervals [20]:
+            xmin = 4.56 
+            xmax = 4.8 
+            text = "nặng" 
+        intervals [21]:
+            xmin = 4.8 
+            xmax = 4.9 
+            text = "và" 
+        intervals [22]:
+            xmin = 4.9 
+            xmax = 5.08 
+            text = "độ" 
+        intervals [23]:
+            xmin = 5.08 
+            xmax = 5.35 
+            text = "bền" 
+        intervals [24]:
+            xmin = 5.35 
+            xmax = 5.47 
+            text = "của" 
+        intervals [25]:
+            xmin = 5.47 
+            xmax = 5.68 
+            text = "nó" 
+        intervals [26]:
+            xmin = 5.68 
+            xmax = 5.9 
+            text = "làm" 
+        intervals [27]:
+            xmin = 5.9 
+            xmax = 6.11 
+            text = "các" 
+        intervals [28]:
+            xmin = 6.11 
+            xmax = 6.48 
+            text = "loại" 
+        intervals [29]:
+            xmin = 6.48 
+            xmax = 6.87 
+            text = "chuột" 
+        intervals [30]:
+            xmin = 6.87 
+            xmax = 7.25 
+            text = "mối" 
+        intervals [31]:
+            xmin = 7.25 
+            xmax = 7.69 
+            text = "gián" 
+        intervals [32]:
+            xmin = 7.69 
+            xmax = 7.79 
+            text = "" 
+        intervals [33]:
+            xmin = 7.79 
+            xmax = 7.96 
+            text = "phải" 
+        intervals [34]:
+            xmin = 7.96 
+            xmax = 8.12 
+            text = "vị" 
+        intervals [35]:
+            xmin = 8.12 
+            xmax = 8.4 
+            text = "nể" 
+        intervals [36]:
+            xmin = 8.4 
+            xmax = 8.849977324263039 
+            text = "" 
+    item [2]:
+        class = "IntervalTier" 
+        name = "phones" 
+        xmin = 0 
+        xmax = 8.849977324263039 
+        intervals: size = 123 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.03 
+            text = "N" 
+        intervals [2]:
+            xmin = 0.03 
+            xmax = 0.09 
+            text = "AO1" 
+        intervals [3]:
+            xmin = 0.09 
+            xmax = 0.13 
+            text = "1" 
+        intervals [4]:
+            xmin = 0.13 
+            xmax = 0.17 
+            text = "L" 
+        intervals [5]:
+            xmin = 0.17 
+            xmax = 0.23 
+            text = "AE1" 
+        intervals [6]:
+            xmin = 0.23 
+            xmax = 0.26 
+            text = "2" 
+        intervals [7]:
+            xmin = 0.26 
+            xmax = 0.37 
+            text = "L" 
+        intervals [8]:
+            xmin = 0.37 
+            xmax = 0.46 
+            text = "WO_vn" 
+        intervals [9]:
+            xmin = 0.46 
+            xmax = 0.5 
+            text = "AE1" 
+        intervals [10]:
+            xmin = 0.5 
+            xmax = 0.59 
+            text = "IZ_vn" 
+        intervals [11]:
+            xmin = 0.59 
+            xmax = 0.62 
+            text = "5" 
+        intervals [12]:
+            xmin = 0.62 
+            xmax = 0.68 
+            text = "G_vn" 
+        intervals [13]:
+            xmin = 0.68 
+            xmax = 0.73 
+            text = "AE1" 
+        intervals [14]:
+            xmin = 0.73 
+            xmax = 0.77 
+            text = "K" 
+        intervals [15]:
+            xmin = 0.77 
+            xmax = 0.85 
+            text = "5" 
+        intervals [16]:
+            xmin = 0.85 
+            xmax = 0.92 
+            text = "N" 
+        intervals [17]:
+            xmin = 0.92 
+            xmax = 0.97 
+            text = "UW1" 
+        intervals [18]:
+            xmin = 0.97 
+            xmax = 1.06 
+            text = "NG" 
+        intervals [19]:
+            xmin = 1.06 
+            xmax = 1.1 
+            text = "0" 
+        intervals [20]:
+            xmin = 1.1 
+            xmax = 1.15 
+            text = "Z" 
+        intervals [21]:
+            xmin = 1.15 
+            xmax = 1.18 
+            text = "AA_vn" 
+        intervals [22]:
+            xmin = 1.18 
+            xmax = 1.21 
+            text = "T" 
+        intervals [23]:
+            xmin = 1.21 
+            xmax = 1.26 
+            text = "1" 
+        intervals [24]:
+            xmin = 1.26 
+            xmax = 1.35 
+            text = "Y" 
+        intervals [25]:
+            xmin = 1.35 
+            xmax = 1.62 
+            text = "AE1" 
+        intervals [26]:
+            xmin = 1.62 
+            xmax = 1.72 
+            text = "2" 
+        intervals [27]:
+            xmin = 1.72 
+            xmax = 1.76 
+            text = "" 
+        intervals [28]:
+            xmin = 1.76 
+            xmax = 1.85 
+            text = "G_vn" 
+        intervals [29]:
+            xmin = 1.85 
+            xmax = 1.89 
+            text = "AA_vn" 
+        intervals [30]:
+            xmin = 1.89 
+            xmax = 1.94 
+            text = "N" 
+        intervals [31]:
+            xmin = 1.94 
+            xmax = 1.97 
+            text = "2" 
+        intervals [32]:
+            xmin = 1.97 
+            xmax = 2.01 
+            text = "D" 
+        intervals [33]:
+            xmin = 2.01 
+            xmax = 2.06 
+            text = "AE1" 
+        intervals [34]:
+            xmin = 2.06 
+            xmax = 2.1 
+            text = "T" 
+        intervals [35]:
+            xmin = 2.1 
+            xmax = 2.16 
+            text = "5" 
+        intervals [36]:
+            xmin = 2.16 
+            xmax = 2.2 
+            text = "T_vn" 
+        intervals [37]:
+            xmin = 2.2 
+            xmax = 2.25 
+            text = "OW_vn" 
+        intervals [38]:
+            xmin = 2.25 
+            xmax = 2.33 
+            text = "IZ_vn" 
+        intervals [39]:
+            xmin = 2.33 
+            xmax = 2.4 
+            text = "1" 
+        intervals [40]:
+            xmin = 2.4 
+            xmax = 2.46 
+            text = "T_vn" 
+        intervals [41]:
+            xmin = 2.46 
+            xmax = 2.5 
+            text = "IE_vn" 
+        intervals [42]:
+            xmin = 2.5 
+            xmax = 2.55 
+            text = "UZ_vn" 
+        intervals [43]:
+            xmin = 2.55 
+            xmax = 2.6 
+            text = "0" 
+        intervals [44]:
+            xmin = 2.6 
+            xmax = 2.67 
+            text = "CH_vn" 
+        intervals [45]:
+            xmin = 2.67 
+            xmax = 2.7 
+            text = "WU_vn" 
+        intervals [46]:
+            xmin = 2.7 
+            xmax = 2.77 
+            text = "AA_vn" 
+        intervals [47]:
+            xmin = 2.77 
+            xmax = 2.84 
+            text = "N" 
+        intervals [48]:
+            xmin = 2.84 
+            xmax = 2.91 
+            text = "3" 
+        intervals [49]:
+            xmin = 2.91 
+            xmax = 2.96 
+            text = "K" 
+        intervals [50]:
+            xmin = 2.96 
+            xmax = 3.02 
+            text = "UO_vn" 
+        intervals [51]:
+            xmin = 3.02 
+            xmax = 3.07 
+            text = "3" 
+        intervals [52]:
+            xmin = 3.07 
+            xmax = 3.16 
+            text = "S_vn" 
+        intervals [53]:
+            xmin = 3.16 
+            xmax = 3.2 
+            text = "AE1" 
+        intervals [54]:
+            xmin = 3.2 
+            xmax = 3.31 
+            text = "NH_vn" 
+        intervals [55]:
+            xmin = 3.31 
+            xmax = 3.34 
+            text = "2" 
+        intervals [56]:
+            xmin = 3.34 
+            xmax = 3.48 
+            text = "S_vn" 
+        intervals [57]:
+            xmin = 3.48 
+            xmax = 3.56 
+            text = "UW_vn" 
+        intervals [58]:
+            xmin = 3.56 
+            xmax = 3.64 
+            text = "1" 
+        intervals [59]:
+            xmin = 3.64 
+            xmax = 3.7 
+            text = "K" 
+        intervals [60]:
+            xmin = 3.7 
+            xmax = 3.83 
+            text = "OO_vn" 
+        intervals [61]:
+            xmin = 3.83 
+            xmax = 4.02 
+            text = "3" 
+        intervals [62]:
+            xmin = 4.02 
+            xmax = 4.34 
+            text = "" 
+        intervals [63]:
+            xmin = 4.34 
+            xmax = 4.42 
+            text = "S_vn" 
+        intervals [64]:
+            xmin = 4.42 
+            xmax = 4.45 
+            text = "UW_vn" 
+        intervals [65]:
+            xmin = 4.45 
+            xmax = 4.48 
+            text = "K" 
+        intervals [66]:
+            xmin = 4.48 
+            xmax = 4.56 
+            text = "1" 
+        intervals [67]:
+            xmin = 4.56 
+            xmax = 4.6 
+            text = "N" 
+        intervals [68]:
+            xmin = 4.6 
+            xmax = 4.66 
+            text = "AW_vn" 
+        intervals [69]:
+            xmin = 4.66 
+            xmax = 4.71 
+            text = "NG" 
+        intervals [70]:
+            xmin = 4.71 
+            xmax = 4.8 
+            text = "5" 
+        intervals [71]:
+            xmin = 4.8 
+            xmax = 4.84 
+            text = "V" 
+        intervals [72]:
+            xmin = 4.84 
+            xmax = 4.87 
+            text = "AE1" 
+        intervals [73]:
+            xmin = 4.87 
+            xmax = 4.9 
+            text = "2" 
+        intervals [74]:
+            xmin = 4.9 
+            xmax = 4.93 
+            text = "D" 
+        intervals [75]:
+            xmin = 4.93 
+            xmax = 5.03 
+            text = "OO_vn" 
+        intervals [76]:
+            xmin = 5.03 
+            xmax = 5.08 
+            text = "5" 
+        intervals [77]:
+            xmin = 5.08 
+            xmax = 5.14 
+            text = "B" 
+        intervals [78]:
+            xmin = 5.14 
+            xmax = 5.24 
+            text = "EE_vn" 
+        intervals [79]:
+            xmin = 5.24 
+            xmax = 5.31 
+            text = "N" 
+        intervals [80]:
+            xmin = 5.31 
+            xmax = 5.35 
+            text = "2" 
+        intervals [81]:
+            xmin = 5.35 
+            xmax = 5.4 
+            text = "K" 
+        intervals [82]:
+            xmin = 5.4 
+            xmax = 5.44 
+            text = "UO_vn" 
+        intervals [83]:
+            xmin = 5.44 
+            xmax = 5.47 
+            text = "3" 
+        intervals [84]:
+            xmin = 5.47 
+            xmax = 5.51 
+            text = "N" 
+        intervals [85]:
+            xmin = 5.51 
+            xmax = 5.65 
+            text = "AO1" 
+        intervals [86]:
+            xmin = 5.65 
+            xmax = 5.68 
+            text = "1" 
+        intervals [87]:
+            xmin = 5.68 
+            xmax = 5.76 
+            text = "L" 
+        intervals [88]:
+            xmin = 5.76 
+            xmax = 5.81 
+            text = "AE1" 
+        intervals [89]:
+            xmin = 5.81 
+            xmax = 5.84 
+            text = "M" 
+        intervals [90]:
+            xmin = 5.84 
+            xmax = 5.9 
+            text = "2" 
+        intervals [91]:
+            xmin = 5.9 
+            xmax = 5.94 
+            text = "K" 
+        intervals [92]:
+            xmin = 5.94 
+            xmax = 5.98 
+            text = "AE1" 
+        intervals [93]:
+            xmin = 5.98 
+            xmax = 6.02 
+            text = "K" 
+        intervals [94]:
+            xmin = 6.02 
+            xmax = 6.11 
+            text = "1" 
+        intervals [95]:
+            xmin = 6.11 
+            xmax = 6.18 
+            text = "L" 
+        intervals [96]:
+            xmin = 6.18 
+            xmax = 6.23 
+            text = "WO_vn" 
+        intervals [97]:
+            xmin = 6.23 
+            xmax = 6.28 
+            text = "AE1" 
+        intervals [98]:
+            xmin = 6.28 
+            xmax = 6.38 
+            text = "IZ_vn" 
+        intervals [99]:
+            xmin = 6.38 
+            xmax = 6.48 
+            text = "5" 
+        intervals [100]:
+            xmin = 6.48 
+            xmax = 6.56 
+            text = "CH_vn" 
+        intervals [101]:
+            xmin = 6.56 
+            xmax = 6.66 
+            text = "UO_vn" 
+        intervals [102]:
+            xmin = 6.66 
+            xmax = 6.7 
+            text = "T" 
+        intervals [103]:
+            xmin = 6.7 
+            xmax = 6.87 
+            text = "5" 
+        intervals [104]:
+            xmin = 6.87 
+            xmax = 6.97 
+            text = "M" 
+        intervals [105]:
+            xmin = 6.97 
+            xmax = 7.11 
+            text = "OO_vn" 
+        intervals [106]:
+            xmin = 7.11 
+            xmax = 7.19 
+            text = "IZ_vn" 
+        intervals [107]:
+            xmin = 7.19 
+            xmax = 7.25 
+            text = "1" 
+        intervals [108]:
+            xmin = 7.25 
+            xmax = 7.36 
+            text = "Y" 
+        intervals [109]:
+            xmin = 7.36 
+            xmax = 7.47 
+            text = "AE1" 
+        intervals [110]:
+            xmin = 7.47 
+            xmax = 7.56 
+            text = "N" 
+        intervals [111]:
+            xmin = 7.56 
+            xmax = 7.69 
+            text = "1" 
+        intervals [112]:
+            xmin = 7.69 
+            xmax = 7.79 
+            text = "" 
+        intervals [113]:
+            xmin = 7.79 
+            xmax = 7.85 
+            text = "F" 
+        intervals [114]:
+            xmin = 7.85 
+            xmax = 7.88 
+            text = "AE1" 
+        intervals [115]:
+            xmin = 7.88 
+            xmax = 7.92 
+            text = "IZ_vn" 
+        intervals [116]:
+            xmin = 7.92 
+            xmax = 7.96 
+            text = "3" 
+        intervals [117]:
+            xmin = 7.96 
+            xmax = 8.01 
+            text = "V" 
+        intervals [118]:
+            xmin = 8.01 
+            xmax = 8.09 
+            text = "IY1" 
+        intervals [119]:
+            xmin = 8.09 
+            xmax = 8.12 
+            text = "5" 
+        intervals [120]:
+            xmin = 8.12 
+            xmax = 8.17 
+            text = "N" 
+        intervals [121]:
+            xmin = 8.17 
+            xmax = 8.28 
+            text = "EE_vn" 
+        intervals [122]:
+            xmin = 8.28 
+            xmax = 8.4 
+            text = "3" 
+        intervals [123]:
+            xmin = 8.4 
+            xmax = 8.849977324263039 
+            text = "" 

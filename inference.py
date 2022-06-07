@@ -13,6 +13,7 @@ from utils.tools import to_device, synth_samples, AttrDict
 from dataset import Dataset
 from text import text_to_sequence
 from datetime import datetime
+from g2p_en import G2p
 
 import audio as Audio
 
@@ -35,7 +36,7 @@ def get_vocoder(config, checkpoint_path):
 
 def synthesize(model, step, configs, vocoder, loader, control_values, output_dir):
     preprocess_config, model_config, train_config = configs
-    pitch_control, energy_control, duration_control = control_values
+    pitch_control, energy_control, duration_control, eng_pos = control_values
     for batch in batchs:
         batch = to_device(batch, device)
         with torch.no_grad():
@@ -44,7 +45,7 @@ def synthesize(model, step, configs, vocoder, loader, control_values, output_dir
                 *(batch[2:]),
                 p_control=pitch_control,
                 e_control=energy_control,
-                d_control=duration_control
+                d_control=duration_control,
             )
             synth_samples(
                 batch,
@@ -70,6 +71,13 @@ if __name__ == "__main__":
         type=int,
         default=0,
         help="speaker ID for multi-speaker synthesis, for single-sentence mode only",
+    )
+
+    parser.add_argument(
+        "--language_id",
+        type=int,
+        default=0,
+        help="language ID for multi-language synthesis"
     )
 
     parser.add_argument(
@@ -106,10 +114,10 @@ if __name__ == "__main__":
 
     # Read Config
     preprocess_config = yaml.load(
-        open("config/1_CTV/preprocess.yaml", "r"), Loader=yaml.FullLoader
+        open("config/pretrain/preprocess.yaml", "r"), Loader=yaml.FullLoader
     )
-    model_config = yaml.load(open("config/1_CTV/model.yaml", "r"), Loader=yaml.FullLoader)
-    train_config = yaml.load(open("config/1_CTV/train.yaml", "r"), Loader=yaml.FullLoader)
+    model_config = yaml.load(open("config/pretrain/model.yaml", "r"), Loader=yaml.FullLoader)
+    train_config = yaml.load(open("config/pretrain/train.yaml", "r"), Loader=yaml.FullLoader)
     configs = (preprocess_config, model_config, train_config)
 
     output_dir = args.output_dir
@@ -131,10 +139,12 @@ if __name__ == "__main__":
 
     # Preprocess texts
     ids = [datetime.now().strftime("%Y_%m_%d-%I_%M_%S_%p")]
-    raw_texts = "Một người dân đang chạy thể dục dọc bờ sông Hương thì bất ngờ phát hiện quả đạn thời chiến tranh nằm bên bãi cỏ"
+    raw_texts = "thông tấn xã thailand cho rằng china đã quá tự cao tự đại trong mối quan hệ với russia"
     speakers = np.array([args.speaker_id])
-    text = convert_text_to_ipa(raw_texts.lower())
+    languages = np.array([args.language_id])
+    text, eng_pos = convert_text_to_ipa(raw_texts.lower())
     text = text.replace(",", "sp")
+    print(text)
     text = np.array(
         text_to_sequence(
             text, preprocess_config["preprocessing"]["text"]["text_cleaners"]
@@ -144,8 +154,8 @@ if __name__ == "__main__":
     text_lens = np.array([len(text[0])])
     mel_spectrogram = get_reference_mel(wav_path, STFT)
     mel_spectrogram = np.array([mel_spectrogram])
-    batchs = [(ids, raw_texts, speakers, text, text_lens, max(text_lens), mel_spectrogram)]
+    batchs = [(ids, raw_texts, speakers, text, text_lens, max(text_lens), mel_spectrogram, languages)]
 
-    control_values = args.pitch_control, args.energy_control, args.duration_control
+    control_values = args.pitch_control, args.energy_control, args.duration_control, eng_pos
 
     synthesize(model, args.restore_step, configs, vocoder, batchs, control_values, output_dir)
