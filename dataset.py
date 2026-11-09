@@ -22,7 +22,7 @@ class Dataset(Dataset):
         self.basename, self.speaker, self.text, self.raw_text, self.lang_id = self.process_meta(
             filename
         )
-        with open(os.path.join(self.preprocessed_path, "speakers.json")) as f:
+        with open(os.path.join(self.preprocessed_path, "speakers.json"), encoding="utf-8") as f:
             self.speaker_map = json.load(f)
         self.sort = sort
         self.drop_last = drop_last
